@@ -1,0 +1,38 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<script src="~/js/actions.js"></script>
+<div class="row text-center">
+    <h1>Text Analysis</h1>
+</div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-12">
+                @if (Model.Message != "")
+                {
+                    <div class="row alert alert-info">
+                        @Model.Message
+                    </div>
+                }
+            </div>
+            <div class="col-md-12 form-group">
+                <label>Specify file location</label>
+            </div>
+            <div class="col-md-12">
+
+                <input type="file" id="fileUpload" name="fileUpload" accept=".txt, .bin" />
+            </div>
+            <div class="col-md-10"></div>
+            <div class="col-md-2">
+                <input type="submit" class="btn btn-primary" onclick="determineHierarchy($('#FileLocation').val())" value="Analyse" />
+            </div>
+            <div class="col-md-12" id="output">
+
+            </div>
+        </div>
+    </div>
+</div>
